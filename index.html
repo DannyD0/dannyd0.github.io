@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel Daramola — Data & Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a0f1e;
+    --navy-mid: #111827;
+    --navy-light: #1a2540;
+    --navy-border: #1e2d4a;
+    --white: #f5f3ef;
+    --white-dim: #a8b0c0;
+    --accent: #e8c87a;
+    --accent-dim: rgba(232, 200, 122, 0.15);
+    --accent-border: rgba(232, 200, 122, 0.3);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 15, 30, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--navy-border);
+    transition: border-color 0.3s;
+  }
+
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--white-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(232, 200, 122, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232, 200, 122, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232, 200, 122, 0.06) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--accent-border);
+    padding: 0.35rem 0.9rem;
+    border-radius: 2px;
+  }
+
+  .hero-name {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-tagline {
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    color: var(--white-dim);
+    max-width: 560px;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    border-radius: 2px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .btn-outline:hover {
+    background: var(--accent-dim);
+    border-color: var(--accent);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--white-dim);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--white-dim);
+    animation: scrollline 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollline {
+    0%, 100% { width: 40px; opacity: 0.4; }
+    50% { width: 60px; opacity: 1; }
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 6rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── ABOUT ── */
+  #about { border-top: 1px solid var(--navy-border); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--white-dim);
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .about-text p:first-child {
+    font-size: 1.15rem;
+    color: var(--white);
+  }
+
+  .about-sidebar {
+    padding-top: 0.5rem;
+  }
+
+  .sidebar-block {
+    border: 1px solid var(--navy-border);
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    border-radius: 4px;
+    background: var(--navy-light);
+  }
+
+  .sidebar-block h4 {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .sidebar-block p {
+    color: var(--white-dim);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .cert-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .cert-list li {
+    font-size: 0.88rem;
+    color: var(--white-dim);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .cert-list li::before {
+    content: '—';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { border-top: 1px solid var(--navy-border); }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--navy-border);
+    position: relative;
+  }
+
+  .exp-item:first-of-type { border-top: 1px solid var(--navy-border); }
+
+  .exp-meta {
+    padding-top: 0.2rem;
+  }
+
+  .exp-company {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+
+  .exp-period {
+    font-size: 0.82rem;
+    color: var(--white-dim);
+    margin-top: 0.5rem;
+  }
+
+  .exp-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .exp-desc {
+    color: var(--white-dim);
+    font-size: 0.97rem;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.65rem;
+    border: 1px solid var(--navy-border);
+    border-radius: 2px;
+    color: var(--white-dim);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { border-top: 1px solid var(--navy-border); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    border: 1px solid var(--navy-border);
+    border-radius: 4px;
+    padding: 2rem;
+    background: var(--navy-light);
+    position: relative;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent-border);
+    transform: translateY(-3px);
+  }
+
+  .project-card.placeholder {
+    border-style: dashed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    text-align: center;
+    opacity: 0.45;
+  }
+
+  .project-card.placeholder:hover {
+    opacity: 0.65;
+    transform: none;
+  }
+
+  .project-number {
+    font-family: 'Fraunces', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--accent-border);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .project-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent-border);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .project-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .project-desc {
+    color: var(--white-dim);
+    font-size: 0.93rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+  }
+
+  .project-role {
+    font-size: 0.82rem;
+    color: var(--white-dim);
+    padding-top: 1rem;
+    border-top: 1px solid var(--navy-border);
+  }
+
+  .project-role strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .placeholder-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .placeholder-text {
+    font-size: 0.88rem;
+    color: var(--white-dim);
+  }
+
+  /* ── SKILLS ── */
+  #skills { border-top: 1px solid var(--navy-border); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .skill-group {
+    border: 1px solid var(--navy-border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    background: var(--navy-light);
+  }
+
+  .skill-group h4 {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--navy-border);
+  }
+
+  .skill-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .skill-group li {
+    font-size: 0.92rem;
+    color: var(--white-dim);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .skill-group li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    border-top: 1px solid var(--navy-border);
+    text-align: center;
+    padding-bottom: 8rem;
+  }
+
+  #contact .section-label { justify-content: center; }
+  #contact .section-label::after { display: none; }
+
+  .contact-cta {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-cta em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .contact-sub {
+    color: var(--white-dim);
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: var(--navy);
+    text-decoration: none;
+    padding: 0.8rem 2rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    border-radius: 2px;
+    transition: opacity 0.2s;
+  }
+
+  .btn-solid:hover { opacity: 0.88; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--navy-border);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white-dim);
+    font-size: 0.8rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    .nav-links a { font-size: 0.78rem; }
+
+    section { padding: 4rem 1.5rem; }
+    #hero { padding: 7rem 1.5rem 4rem; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .exp-meta { padding-bottom: 0; }
+
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .hero-scroll { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .hero-name { font-size: 3rem; }
+  }
+
+  /* ── FADE IN ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Daniel<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Data &amp; Solutions</div>
+    <h1 class="hero-name">Daniel<br><em>Daramola</em></h1>
+    <p class="hero-tagline">Turning messy data into decisions people can actually use — and building the systems that make it stick.</p>
+    <div class="hero-links">
+      <a href="https://linkedin.com/in/danield0" target="_blank" rel="noopener" class="btn-outline">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/DannyD0" target="_blank" rel="noopener" class="btn-outline">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="section-title">A bit about me</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a Business Computer Information Systems student at the University of North Texas, wrapping up my degree in May 2026. My focus is on data analytics, solutions architecture, and the space where business problems meet technical solutions — basically, I like figuring out what the data is actually saying and turning that into something useful.</p>
+      <p>I had the chance to intern at Dell Technologies this past summer, where I got thrown into real client work fast. I was part of a cross-functional team building out AI/ML infrastructure proposals and presenting data protection solutions to clients. That experience pushed me to think less like a student and more like someone who has to defend a recommendation in front of decision-makers.</p>
+      <p>On campus, I run a Power BI dashboard that tracks loan data in real time, and I mentor over 100 students on personal finance. I really enjoy the mentoring side — especially working with students who have unpredictable income and helping them build a system that actually fits their life, not some textbook budget.</p>
+      <p>Outside of work, I'm interested in how analytics intersects with sports — which explains the NBA project. I'm also AWS-certified and always building on the cloud side of things. If any of this sounds like what your team is working on, let's talk.</p>
+    </div>
+    <div class="about-sidebar">
+      <div class="sidebar-block">
+        <h4>Education</h4>
+        <p>B.S. Business Computer Information Systems<br>University of North Texas<br>GPA 3.8 &middot; May 2026</p>
+      </div>
+      <div class="sidebar-block">
+        <h4>Certifications</h4>
+        <ul class="cert-list">
+          <li>AWS Cloud Practitioner</li>
+          <li>Dell AI Foundations</li>
+          <li>Dell Information Storage &amp; Management</li>
+          <li>Microsoft Excel Associate</li>
+          <li>Prompt Engineering for Generative AI</li>
+          <li>SQL for Beginners</li>
+        </ul>
+      </div>
+      <div class="sidebar-block">
+        <h4>Currently targeting</h4>
+        <p>Data Analytics &middot; Associate Consulting &middot; Solutions Architecture</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <div class="section-title">Where I've worked</div>
+
+  <div class="exp-item fade-in">
+    <div class="exp-meta">
+      <div class="exp-company">Dell Technologies</div>
+      <div class="exp-period">June – August 2025</div>
+    </div>
+    <div class="exp-body">
+      <div class="exp-title">Pre-Sales Solutions Architect Intern</div>
+      <p class="exp-desc">Worked on cross-functional intern teams tackling real client case studies from the ground up. Proposed an AI/ML infrastructure solution centered on Dell PowerScale and PowerEdge servers, mapping hardware capabilities to client workload requirements. Served as the data protection specialist on a greenfield engagement, presenting a solution built on Dell PowerProtect Data Domain and PowerProtect Data Manager — walking stakeholders through architecture decisions and trade-offs in a setting where the answers actually mattered.</p>
+      <div class="exp-tags">
+        <span class="tag">Solutions Architecture</span>
+        <span class="tag">AI/ML Infrastructure</span>
+        <span class="tag">Data Protection</span>
+        <span class="tag">Pre-Sales</span>
+        <span class="tag">Dell PowerScale</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="exp-item fade-in">
+    <div class="exp-meta">
+      <div class="exp-company">University of North Texas</div>
+      <div class="exp-period">August 2024 – Present</div>
+    </div>
+    <div class="exp-body">
+      <div class="exp-title">Data Analyst &amp; Peer Mentor</div>
+      <p class="exp-desc">Built and maintain a live Power BI dashboard that tracks loan approvals, denials, withdrawals, average loan amounts, and total disbursements — giving the team a real-time view of financial aid flows instead of waiting on static reports. On the mentoring side, I coach 100+ students on personal finance and budgeting. A big part of that is working with students who have irregular income — hourly workers, gig workers — and helping them build a budget that actually works for their situation rather than a one-size-fits-all template.</p>
+      <div class="exp-tags">
+        <span class="tag">Power BI</span>
+        <span class="tag">Data Visualization</span>
+        <span class="tag">Financial Analysis</span>
+        <span class="tag">Coaching</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="exp-item fade-in">
+    <div class="exp-meta">
+      <div class="exp-company">Reisty</div>
+      <div class="exp-period">June – October 2024</div>
+    </div>
+    <div class="exp-body">
+      <div class="exp-title">Data Analyst Intern</div>
+      <p class="exp-desc">Built monthly performance reports using Excel pivot tables and charts, and packaged those findings into polished client-facing reports in Canva. Went beyond the numbers to consult restaurant partners on operational issues — specifically helping them identify levers for reducing no-show rates and improving table turnover, which tied analytics directly to revenue outcomes. It was a good early lesson in the difference between reporting data and actually communicating it.</p>
+      <div class="exp-tags">
+        <span class="tag">Excel</span>
+        <span class="tag">Data Reporting</span>
+        <span class="tag">Client Consulting</span>
+        <span class="tag">Operations Analysis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <div class="section-title">Things I've built</div>
+  <div class="projects-grid">
+
+    <div class="project-card fade-in">
+      <div class="project-number">01</div>
+      <span class="project-tag">Machine Learning &middot; Nov 2025</span>
+      <div class="project-title">NBA Fantasy Points Prediction</div>
+      <p class="project-desc">A team class project building a model to predict NBA player fantasy point output. The dataset covered 82,000+ player records across seasons. The goal was to produce actionable Start/Bench/Cut recommendations for fantasy users — not just a model that scores well on paper, but one that gives a real person something to act on.</p>
+      <div class="project-role">
+        <strong>My role:</strong> Led exploratory data analysis across the full dataset. Identified both linear and non-linear relationships between player attributes and fantasy output, which directly informed the decision to evaluate both Linear Regression and Random Forest as candidate models. Handled feature analysis and presented findings to the team to align on model selection.
+      </div>
+      <div class="exp-tags" style="margin-top: 1.2rem;">
+        <span class="tag">Python</span>
+        <span class="tag">EDA</span>
+        <span class="tag">Linear Regression</span>
+        <span class="tag">Random Forest</span>
+      </div>
+    </div>
+
+    <div class="project-card placeholder fade-in">
+      <div class="placeholder-icon">+</div>
+      <div class="project-title" style="font-size: 1rem; color: var(--white-dim);">Next project coming soon</div>
+      <p class="placeholder-text">Currently building something new. Check back or connect on GitHub.</p>
+    </div>
+
+    <div class="project-card placeholder fade-in">
+      <div class="placeholder-icon">+</div>
+      <div class="project-title" style="font-size: 1rem; color: var(--white-dim);">Open slot</div>
+      <p class="placeholder-text">Room for one more. The work is underway.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Skills</div>
+  <div class="section-title">Tools of the trade</div>
+  <div class="skills-grid">
+    <div class="skill-group fade-in">
+      <h4>Analytics &amp; BI</h4>
+      <ul>
+        <li>Power BI</li>
+        <li>Tableau</li>
+        <li>Excel (Pivot Tables, Charts)</li>
+        <li>SPSS</li>
+        <li>Altair RapidMiner</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-in">
+      <h4>Programming &amp; Data</h4>
+      <ul>
+        <li>Python</li>
+        <li>SQL</li>
+        <li>Git / GitHub</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-in">
+      <h4>Cloud &amp; Infrastructure</h4>
+      <ul>
+        <li>AWS (Cloud Practitioner certified)</li>
+        <li>Dell PowerScale</li>
+        <li>Dell PowerEdge</li>
+        <li>Dell PowerProtect</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-in">
+      <h4>Platforms &amp; Tools</h4>
+      <ul>
+        <li>Salesforce</li>
+        <li>Qualtrics</li>
+        <li>Canva</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <div class="contact-cta">Let's work on<br><em>something together</em></div>
+  <p class="contact-sub">Whether it's a role, a project, or just a conversation about data — I'm open to it. Find me on LinkedIn or explore my work on GitHub.</p>
+  <div class="contact-links">
+    <a href="https://linkedin.com/in/danield0" target="_blank" rel="noopener" class="btn-solid">
+      Connect on LinkedIn
+    </a>
+    <a href="https://github.com/DannyD0" target="_blank" rel="noopener" class="btn-outline">
+      View GitHub
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span>Daniel Daramola &copy; 2025</span>
+  <span>Built with care, not templates.</span>
+</footer>
+
+<script>
+  // Intersection observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Nav background on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.borderBottomColor = window.scrollY > 50
+      ? 'rgba(30, 45, 74, 0.9)'
+      : 'var(--navy-border)';
+  });
+</script>
+</body>
+</html>
