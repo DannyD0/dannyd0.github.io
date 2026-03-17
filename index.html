@@ -65,15 +65,16 @@ nav {
   padding: 9rem 3rem 5rem;
   position: relative;
   overflow: hidden;
-  /*
-    BACKGROUND IMAGE:
-    Upload your image to GitHub repo as "hero-bg.jpg"
-    Falls back to solid navy if image not found.
-  */
-  background:
-    linear-gradient(rgba(8,16,32,0.72), rgba(8,16,32,0.82)),
-    url('hero-bg.jpg') center center / cover no-repeat,
-    var(--navy);
+  background: var(--navy);
+}
+/* VIDEO: Upload hero-bg.mp4 to your GitHub repo */
+.hero-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.4;
 }
 .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
 
@@ -363,13 +364,16 @@ footer a:hover { color: rgba(255,255,255,0.8); }
 
 <!-- ==================== HERO ==================== -->
 <section id="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="hero-bg.mp4" type="video/mp4">
+  </video>
   <div class="hero-inner">
     <div class="hero-glass">
       <h1 class="hero-name">
         Welcome
         <span class="italic">to my portfolio!</span>
       </h1>
-      <p class="hero-intro">I'm <strong>Daniel Daramola</strong> — a data analyst and pre-sales solutions architect intern at Dell Technologies. I turn messy data into decisions people can actually use and build the systems that make it stick.</p>
+      <p class="hero-intro">Hello! My name is <strong>Daniel Daramola</strong>. I'm a Senior at the University of North Texas majoring in Information Systems and an aspiring data analyst with a passion for turning complex data into clear, actionable insights. I enjoy building solutions that bridge the gap between technical analysis and real business decisions.</p>
       <div class="hero-btns">
         <a href="https://linkedin.com/in/danield0" target="_blank" rel="noopener" class="btn-gold-outline">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -421,7 +425,7 @@ footer a:hover { color: rgba(255,255,255,0.8); }
         <div class="info-cards fade-in">
           <div class="info-card">
             <h4>Education</h4>
-            <p>B.S. Business Computer Information Systems<br>University of North Texas &middot; GPA 3.8 &middot; May 2026</p>
+            <p>B.S. Business Computer Information Systems<br>University of North Texas &middot; GPA 3.6 &middot; May 2026</p>
           </div>
           <div class="info-card">
             <h4>Certifications</h4>
@@ -668,7 +672,7 @@ footer a:hover { color: rgba(255,255,255,0.8); }
       <div class="contact-btns">
         <a href="https://linkedin.com/in/danield0" target="_blank" rel="noopener" class="btn-gold-solid">Connect on LinkedIn</a>
         <a href="https://github.com/DannyD0" target="_blank" rel="noopener" class="btn-light-outline">View GitHub</a>
-        <a href="mailto:danieldaramola04@gmail.com" class="btn-light-outline">
+        <a href="/cdn-cgi/l/email-protection#97f3f6f9fef2fbf3f6e5f6faf8fbf6a7a3d7f0faf6fefbb9f4f8fa" class="btn-light-outline">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
           Send an Email
         </a>
@@ -685,7 +689,7 @@ footer a:hover { color: rgba(255,255,255,0.8); }
       </div>
       <div>
         <div class="cd-label">Email</div>
-        <div class="cd-val"><a href="mailto:danieldaramola04@gmail.com">danieldaramola04@gmail.com</a></div>
+        <div class="cd-val"><a href="/cdn-cgi/l/email-protection#c8aca9a6a1ada4aca9baa9a5a7a4a9f8fc88afa5a9a1a4e6aba7a5"><span class="__cf_email__" data-cfemail="d2b6b3bcbbb7beb6b3a0b3bfbdbeb3e2e692b5bfb3bbbefcb1bdbf">[email&#160;protected]</span></a></div>
       </div>
       <div>
         <div class="cd-label">Writing</div>
@@ -709,15 +713,8 @@ footer a:hover { color: rgba(255,255,255,0.8); }
   <div class="footer-links">
     <a href="https://linkedin.com/in/danield0" target="_blank">LinkedIn</a>
     <a href="https://github.com/DannyD0" target="_blank">GitHub</a>
-    <a href="mailto:danieldaramola04@gmail.com">Email</a>
+    <a href="/cdn-cgi/l/email-protection#a4c0c5cacdc1c8c0c5d6c5c9cbc8c59490e4c3c9c5cdc88ac7cbc9">Email</a>
   </div>
 </footer>
 
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/clo
