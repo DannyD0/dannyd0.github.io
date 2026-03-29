@@ -103,7 +103,7 @@ nav {
 }
 .hero-name .italic { font-style: italic; color: var(--gold); display: block; }
 .hero-intro {
-  font-size: 1.05rem; color: rgba(255,255,255,0.5);
+  font-size: 1.05rem; color: rgba(255,255,255,0.92);
   max-width: 520px; margin-bottom: 2.8rem; line-height: 1.75;
 }
 .hero-intro strong { color: rgba(255,255,255,0.85); font-weight: 400; }
@@ -186,7 +186,7 @@ nav {
 .cert-list li { font-size: 0.87rem; color: var(--ink-mid); display: flex; align-items: flex-start; gap: 0.5rem; }
 .cert-list li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 0.6rem; }
 .target-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-.pill { font-size: 0.75rem; padding: 0.25rem 0.7rem; border-radius: 100px; background: var(--gold-dim); border: 1px solid var(--gold-border); color: var(--gold); }
+.pill { font-size: 0.75rem; padding: 0.25rem 0.7rem; border-radius: 100px; background: rgba(232,196,98,0.2); border: 1px solid rgba(232,196,98,0.6); color: #e8c462; font-weight: 500; }
 
 /* ===================== INTERESTS (navy) ===================== */
 #interests { background: var(--navy); border-top: 1px solid var(--navy-border); }
@@ -230,6 +230,9 @@ a.interest-card { color: inherit; }
 .exp-period { font-size: 0.81rem; color: var(--ink-light); margin-top: 0.35rem; }
 .exp-title { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 300; color: var(--ink); margin-bottom: 0.85rem; line-height: 1.25; }
 .exp-desc { color: var(--ink-mid); font-size: 0.97rem; line-height: 1.8; margin-bottom: 1.1rem; }
+.exp-bullets { list-style: none; padding: 0; margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.55rem; }
+.exp-bullets li { color: var(--ink-mid); font-size: 0.95rem; line-height: 1.7; padding-left: 1.1rem; position: relative; }
+.exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--coral); font-size: 0.85rem; }
 .tag-row { display: flex; flex-wrap: wrap; gap: 0.38rem; }
 .tag { font-size: 0.72rem; padding: 0.22rem 0.62rem; border: 1px solid rgba(13,27,42,0.12); border-radius: 2px; color: var(--ink-mid); background: var(--white); }
 
@@ -349,7 +352,7 @@ footer a:hover { color: rgba(255,255,255,0.8); }
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">Daniel<span>.</span></a>
+  <a href="#hero" class="nav-logo">Daniel</a>
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -377,7 +380,7 @@ footer a:hover { color: rgba(255,255,255,0.8); }
         Welcome
         <span class="italic">to my portfolio!</span>
       </h1>
-      <p class="hero-intro">Hello! My name is <strong>Daniel Daramola</strong>. I'm a Senior at the University of North Texas majoring in Information Systems and an aspiring data analyst with a passion for turning complex data into clear, actionable insights. I enjoy building solutions that bridge the gap between technical analysis and real business decisions.</p>
+      <p class="hero-intro">Hello! My name is <strong>Daniel Daramola</strong>. I'm a Senior at the University of North Texas majoring in Information Systems and an aspiring data analyst. I enjoy building solutions that use data to support and make business decisions.</p>
       <div class="hero-btns">
         <a href="https://linkedin.com/in/danield0" target="_blank" rel="noopener" class="btn-gold-outline">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -424,7 +427,7 @@ footer a:hover { color: rgba(255,255,255,0.8); }
 
       <div class="about-right">
         <div class="about-text">
-          <p>I'm a Business Computer Information Systems student at the University of North Texas, wrapping up my degree in May 2026. My focus is on data analytics, solutions architecture, and the space where business problems meet technical solutions — basically, I like figuring out what the data is actually saying and turning that into something useful.</p>
+          <p>I'm a Business Computer Information Systems student at the University of North Texas graduating in May 2026. My primary focus is leveraging data to support business strategy — whether that's through analytics, reporting, or serving as a trusted advisor who helps organizations align their data with real business goals.</p>
         </div>
         <div class="info-cards">
           <div class="info-card">
@@ -521,17 +524,20 @@ footer a:hover { color: rgba(255,255,255,0.8); }
           <img src="dell-logo.png" alt="Dell" class="exp-logo" onerror="this.parentElement.style.display='none'">
         </div>
         <div class="exp-co">Dell Technologies</div>
-        <div class="exp-period">June – August 2025</div>
+        <div class="exp-period">June 2025 – August 2025</div>
       </div>
       <div>
         <div class="exp-title">Pre-Sales Solutions Architect Intern</div>
-        <p class="exp-desc">Worked on cross-functional intern teams tackling real client case studies from the ground up. Proposed an AI/ML infrastructure solution centered on Dell PowerScale and PowerEdge servers, mapping hardware capabilities to client workload requirements. Served as the data protection specialist on a greenfield engagement, presenting a solution built on Dell PowerProtect Data Domain and PowerProtect Data Manager — walking stakeholders through architecture decisions in a setting where the answers actually mattered.</p>
-        <div class="tag-row">
+        <ul class="exp-bullets">
+          <li>Collaborated with cross-functional teams to analyze complex client business problems, design custom analytical approaches, and develop structured solution proposals from initial brief through final presentation.</li>
+          <li>Proposed an AI/ML infrastructure solution built on Dell storage and server infrastructure, designed to host and support large language model workloads at scale.</li>
+          <li>Served as data protection specialist in case study, presenting a greenfield solution using Dell products to a panel of senior stakeholders.</li>
+        </ul>
+        <div class="tag-row" style="margin-top:1rem;">
           <span class="tag">Solutions Architecture</span>
           <span class="tag">AI/ML Infrastructure</span>
           <span class="tag">Data Protection</span>
           <span class="tag">Pre-Sales</span>
-          <span class="tag">Dell PowerScale</span>
         </div>
       </div>
     </div>
@@ -547,9 +553,15 @@ footer a:hover { color: rgba(255,255,255,0.8); }
       </div>
       <div>
         <div class="exp-title">Data Analyst &amp; Peer Mentor</div>
-        <p class="exp-desc">Built and maintain a live Power BI dashboard tracking loan approvals, denials, withdrawals, average loan amounts, and total disbursements — giving the team a real-time view of financial aid flows. Coach 100+ students on personal finance and budgeting, with a focus on students with irregular income who need a system that actually reflects their reality.</p>
-        <div class="tag-row">
+        <ul class="exp-bullets">
+          <li>Built and maintain live Power BI dashboards tracking loan approvals, denials, and other metrics that provide leadership with real-time updates enabling data-driven decision making.</li>
+          <li>Produce end-of-semester reports and presentations using Excel analysis tools to evaluate department programs and compare outcomes with university strategy.</li>
+          <li>Oversee data quality and storage protocols for the loan processing team, ensuring accurate records across multiple student loan cases.</li>
+          <li>Acting as a trusted advisor coaching 200+ students on improving financial literacy skills through personal coaching meetings and workshop presentations.</li>
+        </ul>
+        <div class="tag-row" style="margin-top:1rem;">
           <span class="tag">Power BI</span>
+          <span class="tag">Excel</span>
           <span class="tag">Data Visualization</span>
           <span class="tag">Financial Analysis</span>
           <span class="tag">Coaching</span>
@@ -568,12 +580,16 @@ footer a:hover { color: rgba(255,255,255,0.8); }
       </div>
       <div>
         <div class="exp-title">Data Analyst Intern</div>
-        <p class="exp-desc">Built monthly performance reports using Excel pivot tables and charts, packaged as polished client-facing reports in Canva. Consulted restaurant partners on reducing no-show rates and improving table turnover — tying analytics directly to revenue outcomes. A good early lesson in the difference between reporting data and actually communicating it.</p>
-        <div class="tag-row">
+        <ul class="exp-bullets">
+          <li>Built monthly performance dashboards using Excel pivot tables and charts, tracking diner volume, cancellation rates, and no-show frequency for restaurant partners.</li>
+          <li>Consulted restaurant partners on data trends, delivering strategic recommendations that contributed to partners converting from free trial to paid subscriptions.</li>
+          <li>Designed client-facing reports in Canva, translating complex analysis into consumable visuals for non-technical business owners.</li>
+        </ul>
+        <div class="tag-row" style="margin-top:1rem;">
           <span class="tag">Excel</span>
           <span class="tag">Data Reporting</span>
           <span class="tag">Client Consulting</span>
-          <span class="tag">Operations Analysis</span>
+          <span class="tag">Canva</span>
         </div>
       </div>
     </div>
@@ -605,12 +621,23 @@ footer a:hover { color: rgba(255,255,255,0.8); }
         </div>
       </div>
 
-      <div class="project-card placeholder fade-in">
-        <div class="ph-icon">+</div>
-        <div class="ph-text">Next project coming soon</div>
+      <div class="project-card">
+        <div class="proj-body">
+          <span class="proj-type">Consulting Analytics &middot; 2025</span>
+          <div class="proj-title">BCG Ad Campaign Performance Analysis</div>
+          <p class="proj-desc">Simulated a BCG consulting engagement analyzing multi-channel ad campaign performance for a hypothetical client. Assessed customer conversion trends across channels and audience segments to evaluate campaign effectiveness.</p>
+          <div class="proj-role">
+            <strong>Key deliverables:</strong> Synthesized data findings into a clear, client-ready recommendation tailored to the client's marketing goals, mirroring the consulting deliverable format used at BCG.
+          </div>
+          <div class="tag-row">
+            <span class="tag" style="background:rgba(255,255,255,0.05);border-color:var(--navy-border);color:rgba(255,255,255,0.5);">Data Analysis</span>
+            <span class="tag" style="background:rgba(255,255,255,0.05);border-color:var(--navy-border);color:rgba(255,255,255,0.5);">Consulting</span>
+            <span class="tag" style="background:rgba(255,255,255,0.05);border-color:var(--navy-border);color:rgba(255,255,255,0.5);">Campaign Analytics</span>
+          </div>
+        </div>
       </div>
 
-      <div class="project-card placeholder fade-in">
+      <div class="project-card placeholder">
         <div class="ph-icon">+</div>
         <div class="ph-text">Open slot</div>
       </div>
@@ -676,10 +703,7 @@ footer a:hover { color: rgba(255,255,255,0.8); }
       <div class="contact-btns">
         <a href="https://linkedin.com/in/danield0" target="_blank" rel="noopener" class="btn-gold-solid">Connect on LinkedIn</a>
         <a href="https://github.com/DannyD0" target="_blank" rel="noopener" class="btn-light-outline">View GitHub</a>
-        <a href="/cdn-cgi/l/email-protection#97f3f6f9fef2fbf3f6e5f6faf8fbf6a7a3d7f0faf6fefbb9f4f8fa" class="btn-light-outline">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
-          Send an Email
-        </a>
+        <a href="mailto:danieldaramola04@gmail.com" class="btn-light-outline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg> Send an Email</a>
       </div>
     </div>
     <div class="contact-details">
@@ -693,15 +717,7 @@ footer a:hover { color: rgba(255,255,255,0.8); }
       </div>
       <div>
         <div class="cd-label">Email</div>
-        <div class="cd-val"><a href="/cdn-cgi/l/email-protection#c8aca9a6a1ada4aca9baa9a5a7a4a9f8fc88afa5a9a1a4e6aba7a5"><span class="__cf_email__" data-cfemail="d2b6b3bcbbb7beb6b3a0b3bfbdbeb3e2e692b5bfb3bbbefcb1bdbf">[email&#160;protected]</span></a></div>
-      </div>
-      <div>
-        <div class="cd-label">Writing</div>
-        <div class="cd-val"><a href="https://substack.com/@collegefinance101" target="_blank">substack.com/@collegefinance101</a></div>
-      </div>
-      <div>
-        <div class="cd-label">Location</div>
-        <div class="cd-val">Denton, Texas</div>
+        <div class="cd-val"><a href="mailto:danieldaramola04@gmail.com">danieldaramola04@gmail.com</a></div>
       </div>
       <div>
         <div class="cd-label">Status</div>
@@ -717,8 +733,15 @@ footer a:hover { color: rgba(255,255,255,0.8); }
   <div class="footer-links">
     <a href="https://linkedin.com/in/danield0" target="_blank">LinkedIn</a>
     <a href="https://github.com/DannyD0" target="_blank">GitHub</a>
-    <a href="/cdn-cgi/l/email-protection#a4c0c5cacdc1c8c0c5d6c5c9cbc8c59490e4c3c9c5cdc88ac7cbc9">Email</a>
+    <a href="mailto:danieldaramola04@gmail.com">Email</a>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/clo
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
