@@ -328,7 +328,7 @@ footer a:hover { color: rgba(255,255,255,0.8); }
 @media (max-width: 960px) {
   .about-grid { grid-template-columns: 1fr; }
   .photo-card { position: static; max-width: 260px; }
-  .interests-grid { grid-template-columns: 1fr 1fr; }
+  .interests-grid { grid-template-columns: 1fr 1fr !important; }
   .skills-grid { grid-template-columns: 1fr 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 3.5rem; }
   .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
@@ -380,7 +380,7 @@ footer a:hover { color: rgba(255,255,255,0.8); }
         Welcome
         <span class="italic">to my portfolio!</span>
       </h1>
-      <p class="hero-intro">Hello! My name is <strong>Daniel Daramola</strong>. I'm a Senior at the University of North Texas majoring in Information Systems and an aspiring data analyst. I enjoy building solutions that use data to support and make business decisions.</p>
+      <p class="hero-intro">Hello! My name is <strong>Daniel Daramola</strong>. I'm a Senior at the University of North Texas majoring in Information Systems — an aspiring data analyst with an entrepreneurial spirit. I enjoy building solutions that use data to support and drive business decisions.</p>
       <div class="hero-btns">
         <a href="https://linkedin.com/in/danield0" target="_blank" rel="noopener" class="btn-gold-outline">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -427,7 +427,8 @@ footer a:hover { color: rgba(255,255,255,0.8); }
 
       <div class="about-right">
         <div class="about-text">
-          <p>I'm a Business Computer Information Systems student at the University of North Texas graduating in May 2026. I am seeking roles that provide me the opportunity to leverage data to support business strategy, whether that's through analytics, reporting, or serving as a trusted advisor who helps organizations align their data with real business goals.</p>
+          <p>I'm a Business Computer Information Systems student at the University of North Texas graduating in May 2026. My primary focus is leveraging data to support business strategy — whether that's through analytics, reporting, or serving as a trusted advisor who helps organizations align their data with real business goals.</p>
+          <p>Beyond data, I have an entrepreneurial spirit that drives me to build things from the ground up. I've launched a full-stack web application and co-founded a service business — both born out of a desire to solve real problems, not just analyze them.</p>
         </div>
         <div class="info-cards">
           <div class="info-card">
@@ -465,12 +466,11 @@ footer a:hover { color: rgba(255,255,255,0.8); }
   <div class="section-wrap">
     <div class="eyebrow-light">My interests outside of work</div>
     <div class="heading-light">What I'm into <em>beyond work</em></div>
-    <div class="interests-grid">
+    <div class="interests-grid" style="grid-template-columns: repeat(4, 1fr);">
 
-      <a href="https://substack.com/@collegefinance101" target="_blank" rel="noopener"class="interest-card">
+      <a href="https://substack.com/@collegefinance101" target="_blank" rel="noopener" class="interest-card">
         <div class="int-img">
-          <!-- Replace with: <img src="writing.jpg" alt="Writing" class="int-real-img"> -->
-         <img src="writing.jpg" alt="Writing" class="interest-real-img">
+          <img src="writing.jpg" alt="Writing" class="int-real-img">
         </div>
         <div class="int-body">
           <div class="int-num">01</div>
@@ -485,8 +485,7 @@ footer a:hover { color: rgba(255,255,255,0.8); }
 
       <div class="interest-card">
         <div class="int-img">
-          <!-- Replace with: <img src="cooking.jpg" alt="Cooking" class="int-real-img"> -->
-         <img src="cooking.jpg" alt="Cooking" class="interest-real-img">
+          <img src="cooking.jpg" alt="Cooking" class="int-real-img">
         </div>
         <div class="int-body">
           <div class="int-num">02</div>
@@ -497,13 +496,27 @@ footer a:hover { color: rgba(255,255,255,0.8); }
 
       <div class="interest-card">
         <div class="int-img">
-          <!-- Replace with: <img src="fitness.jpg" alt="Fitness" class="int-real-img"> -->
-         <img src="fitness.jpg" alt="Fitness" class="interest-real-img">
+          <img src="fitness.jpg" alt="Fitness" class="int-real-img">
         </div>
         <div class="int-body">
           <div class="int-num">03</div>
           <div class="int-title">Fitness</div>
           <p class="int-desc">The gym is where I reset. Both reward consistency and give you measurable feedback — the same reason I like data work. Whether it's a morning lift or a long run, it sets the tone for the day.</p>
+        </div>
+      </div>
+
+      <div class="interest-card">
+        <div class="int-img">
+          <!--
+            Replace with: <img src="clearspace.jpg" alt="ClearSpace" class="int-real-img">
+          -->
+          <div class="int-icon">🏠</div>
+          <span>Your photo here</span>
+        </div>
+        <div class="int-body">
+          <div class="int-num">04</div>
+          <div class="int-title">ClearSpace</div>
+          <p class="int-desc">Co-founded a garage clearing service business in Denton, TX. We help homeowners reclaim their space — clearing garages, donating usable items to charity partners, and handling high-value resale. Building something from the ground up, one garage at a time.</p>
         </div>
       </div>
 
@@ -637,9 +650,24 @@ footer a:hover { color: rgba(255,255,255,0.8); }
         </div>
       </div>
 
-      <div class="project-card placeholder">
-        <div class="ph-icon">+</div>
-        <div class="ph-text">Open slot</div>
+      <div class="project-card">
+        <div class="proj-body">
+          <span class="proj-type">Full-Stack App &middot; 2025</span>
+          <div class="proj-title">Pantry AI — Grocery Guru</div>
+          <p class="proj-desc">Built a full-stack grocery inventory and predictive depletion web app from scratch with no prior coding experience. The app tracks what you have, learns your consumption patterns, and predicts when you'll run out before you do.</p>
+          <div class="proj-role">
+            <strong>Stack:</strong> Next.js 14, Tailwind CSS, Supabase (Postgres + Auth), Open Food Facts API, and Claude Vision API for receipt and barcode scanning. Deployed on Vercel.
+          </div>
+          <div class="tag-row">
+            <span class="tag" style="background:rgba(255,255,255,0.05);border-color:var(--navy-border);color:rgba(255,255,255,0.5);">Next.js</span>
+            <span class="tag" style="background:rgba(255,255,255,0.05);border-color:var(--navy-border);color:rgba(255,255,255,0.5);">Supabase</span>
+            <span class="tag" style="background:rgba(255,255,255,0.05);border-color:var(--navy-border);color:rgba(255,255,255,0.5);">Claude Vision API</span>
+            <span class="tag" style="background:rgba(255,255,255,0.05);border-color:var(--navy-border);color:rgba(255,255,255,0.5);">Tailwind CSS</span>
+          </div>
+          <div style="margin-top:1rem; padding-top:0.9rem; border-top:1px solid var(--navy-border); font-size:0.8rem; color:rgba(255,255,255,0.35); font-style:italic;">
+            Live link coming soon
+          </div>
+        </div>
       </div>
 
     </div>
